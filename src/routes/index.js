@@ -21,7 +21,9 @@ app.get("/buscarJSON", function (req, res) {
       console.log(__dirname)
       const answer = JSON.stringify(response)
       fs.writeFile('answer.json', answer, function (err) {
-        if (err) throw err;
+        if (err)
+          throw err
+
         console.log('Saved!');
       });
 
@@ -35,8 +37,10 @@ app.post("/encaminharJSON", function (req, res) {
   const answer = JSON.stringify(req.body)
 
   fs.writeFile('answer.json', answer, function (err) {
-    if (err) throw err;
-    console.log('Saved!');
+    if (err)
+      throw err
+
+    console.log('Saved!')
   });
 
   // fetch('http://localhost:4001/encaminharJSON', {
