@@ -1,0 +1,25 @@
+{
+  "name": "crypt-julio-cesar-api",
+  "version": "1.0.0",
+  "description": "Criptografia de Júlio César",
+  "main": "src/servidor.js",
+  "scripts": {
+    "dev": "node src/servidor.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/antoniojunioalves/crypt-julio-cesar-api.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/antoniojunioalves/crypt-julio-cesar-api/issues"
+  },
+  "homepage": "https://github.com/antoniojunioalves/crypt-julio-cesar-api#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "node-fetch": "^2.6.0"
+  }
+}
