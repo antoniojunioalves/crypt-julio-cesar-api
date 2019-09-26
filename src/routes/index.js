@@ -1,8 +1,17 @@
 const fetch = require("node-fetch")
 const fs = require('fs')
 
+const salvarArquivo = (answer) => {
+  fs.writeFile('answer.json', answer, function (err) {
+    if (err)
+      throw err
+
+    console.log('Saved!')
+  });
+}
 
 module.exports.assignRoutes = app => {
+
   app.get("/buscarJSON", function (req, res) {
     fetch('https://api.codenation.dev/v1/challenge/dev-ps/generate-data?token=64303698a48effb62677752107150d355a274937')
       .then(response => {
@@ -12,14 +21,9 @@ module.exports.assignRoutes = app => {
         return response.json()
       })
       .then(response => {
-        console.log(__dirname)
         const answer = JSON.stringify(response)
-        fs.writeFile('answer.json', answer, function (err) {
-          if (err)
-            throw err
 
-          console.log('Saved!');
-        });
+        salvarArquivo(answer)
 
         res.send(answer)
       })
@@ -30,11 +34,8 @@ module.exports.assignRoutes = app => {
     console.log(req.body)
     const answer = JSON.stringify(req.body)
 
-    fs.writeFile('answer.json', answer, function (err) {
-      if (err)
-        throw err
+    salvarArquivo(answer)
 
-      console.log('Saved!')
-    });
+    res.send(answer)
   })
 }
