@@ -15,7 +15,5 @@ app.use(allowCors)
 
 route.assignRoutes(app)
 
-
-
 http.createServer(app)
   .listen(port, () => console.log(`Servidor rodando local na porta ${port}`))

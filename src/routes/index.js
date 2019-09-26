@@ -1,6 +1,7 @@
 const fetch = require("node-fetch")
 const fs = require('fs')
 
+
 module.exports.assignRoutes = app => {
   app.get("/buscarJSON", function (req, res) {
     fetch('https://api.codenation.dev/v1/challenge/dev-ps/generate-data?token=64303698a48effb62677752107150d355a274937')
@@ -25,7 +26,7 @@ module.exports.assignRoutes = app => {
       .catch((error) => console.log('3', error))
   })
 
-  app.post("/encaminharJSON", function (req, res) {
+  app.post("/salvarJSON", function (req, res) {
     console.log(req.body)
     const answer = JSON.stringify(req.body)
 
@@ -35,7 +36,5 @@ module.exports.assignRoutes = app => {
 
       console.log('Saved!')
     });
-
-    res.status(200).send(answer)
   })
 }
